@@ -1,1 +1,1 @@
-declare module "apc/Apc";
+declare module "apc/*";

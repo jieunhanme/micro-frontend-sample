@@ -6,14 +6,24 @@ import {
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Breadcrumb, Layout, Menu } from "antd";
+import { Link, Outlet } from "react-router-dom";
 
 const { Header, Content, Sider } = Layout;
-const RemoteApc = React.lazy(() => import("apc/Apc"));
 
-const items1: MenuProps["items"] = ["1", "2", "3"].map((key) => ({
-  key,
-  label: `nav ${key}`,
-}));
+const nav1: MenuProps["items"] = [
+  {
+    key: "apc",
+    label: <Link to="/apc">APC</Link>,
+  },
+  {
+    key: "apc-page1",
+    label: <Link to="/apc/page1">page1</Link>,
+  },
+  {
+    key: "apc-page2",
+    label: <Link to="/apc/page2">page2</Link>,
+  },
+];
 
 const items2: MenuProps["items"] = [
   UserOutlined,
@@ -23,7 +33,7 @@ const items2: MenuProps["items"] = [
   const key = String(index + 1);
 
   return {
-    key: `sub${key}`,
+    key: `sub ${key}`,
     icon: React.createElement(icon),
     label: `subnav ${key}`,
 
@@ -46,7 +56,7 @@ const App: React.FC = () => {
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={["2"]}
-          items={items1}
+          items={nav1}
           style={{ flex: 1, minWidth: 0 }}
         />
       </Header>
@@ -78,20 +88,9 @@ const App: React.FC = () => {
               },
             ]}
           />
-          {/* <Content
-            style={{
-              padding: 24,
-              margin: 0,
-              minHeight: 280,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}
-          >
-            Content
-          </Content> */}
           <Content className="bg-white rounded-md">
             <Suspense fallback={<div>loading!!!!</div>}>
-              <RemoteApc />
+              <Outlet />
             </Suspense>
           </Content>
         </Layout>

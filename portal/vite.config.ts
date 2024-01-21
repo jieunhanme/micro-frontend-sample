@@ -14,4 +14,7 @@ export default defineConfig({
       shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
+  build: {
+    target: "ES2022",
+  },
 });

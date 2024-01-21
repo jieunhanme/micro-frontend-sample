@@ -10,7 +10,8 @@ export default defineConfig({
       name: "apc",
       filename: "remoteEntry.js",
       exposes: {
-        "./Apc": "./src/App",
+        // "./Apc": "./src/App",
+        "./Routes": "./src/routes",
       },
       shared: ["react", "react-dom", "react-router-dom"],
     }),
