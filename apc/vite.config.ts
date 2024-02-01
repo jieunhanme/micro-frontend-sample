@@ -10,13 +10,13 @@ export default defineConfig({
       name: "apc",
       filename: "remoteEntry.js",
       exposes: {
-        // "./Apc": "./src/App",
         "./Routes": "./src/routes",
       },
       shared: ["react", "react-dom", "react-router-dom"],
     }),
   ],
   build: {
-    target: "ES2022",
+    target: "esnext",
+    modulePreload: false,
   },
 });

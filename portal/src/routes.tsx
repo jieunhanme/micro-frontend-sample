@@ -8,11 +8,11 @@ const Test = () => {
 };
 export const routes = [
   {
-    path: "/",
+    path: "/*",
     element: <AppPage />,
     children: [
       {
-        path: "",
+        path: "portal",
         element: <Test />,
       },
       ...remoteApcRoutes,

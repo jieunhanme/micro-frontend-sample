@@ -13,7 +13,7 @@ const { Header, Content, Sider } = Layout;
 const nav1: MenuProps["items"] = [
   {
     key: "apc",
-    label: <Link to="/apc">APC</Link>,
+    label: <Link to="/apc/home">APC</Link>,
   },
   {
     key: "apc-page1",
