@@ -3,19 +3,15 @@ import remoteApcRoutes from "apc/Routes";
 
 const AppPage = React.lazy(() => import("./App"));
 
-const Test = () => {
-  return <div>HOST!!!</div>;
-};
 export const routes = [
   {
-    path: "/*",
+    path: "/",
     element: <AppPage />,
     children: [
       {
-        path: "portal",
-        element: <Test />,
+        path: "apc",
+        children: [...remoteApcRoutes],
       },
-      ...remoteApcRoutes,
     ],
   },
 ];

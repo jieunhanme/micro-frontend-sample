@@ -5,14 +5,6 @@ import Root from "./components/layout";
 function App() {
   return (
     <>
-      {/* <Routes>
-        <Route path="/*" element={<Root />}>
-          <Route path="portal" element={<Test />} />
-          {ApcRoutes.map((route) => (
-            <Route key={route.path} path={route.path} element={route.element} />
-          ))}
-        </Route>
-      </Routes> */}
       <Root />
     </>
   );

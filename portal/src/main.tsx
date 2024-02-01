@@ -5,15 +5,11 @@ import "./index.css";
 // import { BrowserRouter } from "react-router-dom";
 import { routes } from "./routes.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-const mergedRoutes = [...routes];
 
-const router = createBrowserRouter(mergedRoutes);
+const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-    {/* <BrowserRouter>
-      <App />
-    </BrowserRouter> */}
   </React.StrictMode>
 );
