@@ -19,4 +19,10 @@ export default defineConfig({
     target: "esnext",
     modulePreload: false,
   },
+  resolve: {
+    alias: [
+      { find: "@components", replacement: "/src/@components" },
+      { find: "@pages", replacement: "/src/@pages" },
+    ],
+  },
 });

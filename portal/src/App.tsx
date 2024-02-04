@@ -1,6 +1,4 @@
-import Root from "./components/layout";
-// import { Route, Routes } from "react-router-dom";
-// import ApcRoutes from "apc/Routes";
+import Root from "@components/layout";
 
 function App() {
   return (
