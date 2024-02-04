@@ -58,10 +58,12 @@ const App = () => {
   return (
     <Layout className="h-screen">
       <Header className="flex items-center p-4 pt-0 pb-0">
-        <div className="flex gap-1 mr-5 font-bold text-gray-300">
-          <LaptopOutlined />
-          MFA SAMPLE
-        </div>
+        <Link to="/">
+          <div className="flex gap-1 mr-5 font-bold text-gray-300">
+            <LaptopOutlined />
+            MFA SAMPLE
+          </div>
+        </Link>
         <Menu
           theme="dark"
           mode="horizontal"
