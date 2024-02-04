@@ -1,95 +1,79 @@
-import React, { Suspense } from "react";
-import {
-  LaptopOutlined,
-  NotificationOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import { Suspense, useMemo } from "react";
+import { LaptopOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu } from "antd";
-import { Link, Outlet } from "react-router-dom";
+import { Breadcrumb, Layout, Menu, Spin } from "antd";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
-const { Header, Content, Sider } = Layout;
+const { Header, Content } = Layout;
 
-const nav1: MenuProps["items"] = [
+const nav: MenuProps["items"] = [
   {
-    key: "apc",
-    label: <Link to="/apc">APC</Link>,
-  },
-  {
-    key: "apc-page1",
-    label: <Link to="/apc/page1">page1</Link>,
-  },
-  {
-    key: "apc-page2",
-    label: <Link to="/apc/page2">page2</Link>,
+    label: "APC",
+    key: "APC",
+    theme: "light",
+    children: [
+      {
+        type: "group",
+        label: "Menu 1",
+        children: [
+          {
+            key: "Dashboard",
+            label: <Link to="/apc">Dashboard</Link>,
+          },
+        ],
+      },
+      {
+        type: "group",
+        label: "Menu 2",
+        children: [
+          {
+            key: "page1",
+            label: <Link to="/apc/page1">page1</Link>,
+          },
+          {
+            key: "page2",
+            label: <Link to="/apc/page2">page2</Link>,
+          },
+          {
+            key: "page3",
+            label: <Link to="/apc/page3">page3</Link>,
+          },
+        ],
+      },
+    ],
   },
 ];
 
-const items2: MenuProps["items"] = [
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-].map((icon, index) => {
-  const key = String(index + 1);
+const App = () => {
+  const { pathname } = useLocation();
 
-  return {
-    key: `sub ${key}`,
-    icon: React.createElement(icon),
-    label: `subnav ${key}`,
+  const pathList = useMemo(() => {
+    const defaultPath = "Home";
+    const paths = pathname.split("/").filter((ele) => ele);
+    return [defaultPath, ...paths].map((key) => ({
+      title: key,
+    }));
+  }, [pathname]);
 
-    children: new Array(4).fill(null).map((_, j) => {
-      const subKey = index * 4 + j + 1;
-      return {
-        key: subKey,
-        label: `option${subKey}`,
-      };
-    }),
-  };
-});
-
-const App: React.FC = () => {
   return (
     <Layout className="h-screen">
-      <Header style={{ display: "flex", alignItems: "center" }}>
-        <div className="demo-logo" />
+      <Header className="flex items-center p-4 pt-0 pb-0">
+        <div className="flex gap-1 mr-5 font-bold text-gray-300">
+          <LaptopOutlined />
+          MFA SAMPLE
+        </div>
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={["2"]}
-          items={nav1}
-          style={{ flex: 1, minWidth: 0 }}
+          className="flex-1 min-w-0"
+          items={nav}
         />
       </Header>
       <Layout>
-        <Sider width={200}>
-          <Menu
-            mode="inline"
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1"]}
-            style={{ height: "100%", borderRight: 0 }}
-            items={items2}
-          />
-        </Sider>
-        <Layout style={{ padding: "0 24px 24px" }}>
-          <Breadcrumb
-            style={{ margin: "16px 0" }}
-            items={[
-              {
-                title: "Home",
-              },
-              {
-                title: <a href="">Apc</a>,
-              },
-              {
-                title: <a href="">Fdc</a>,
-              },
-              {
-                title: <a href="">Rms</a>,
-              },
-            ]}
-          />
-          <Content className="bg-white rounded-md">
-            <Suspense fallback={<div>loading!!!!</div>}>
+        <Layout className="p-4 pt-0">
+          <Breadcrumb className="m-3 ml-0 mr-0" items={pathList} />
+          <Content className="p-4 bg-white rounded-md">
+            <Suspense fallback={<Spin fullscreen />}>
               <Outlet />
             </Suspense>
           </Content>
