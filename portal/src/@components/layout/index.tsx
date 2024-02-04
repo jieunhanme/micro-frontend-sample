@@ -3,6 +3,8 @@ import { LaptopOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Breadcrumb, Layout, Menu, Spin } from "antd";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorPage from "@pages/error";
 
 const { Header, Content } = Layout;
 
@@ -75,9 +77,14 @@ const App = () => {
         <Layout className="p-4 pt-0">
           <Breadcrumb className="m-3 ml-0 mr-0" items={pathList} />
           <Content className="p-4 bg-white rounded-md">
-            <Suspense fallback={<Spin fullscreen />}>
-              <Outlet />
-            </Suspense>
+            <ErrorBoundary
+              FallbackComponent={(props) => <ErrorPage type={500} {...props} />}
+              onReset={() => window.location.reload()}
+            >
+              <Suspense fallback={<Spin fullscreen />}>
+                <Outlet />
+              </Suspense>
+            </ErrorBoundary>
           </Content>
         </Layout>
       </Layout>
