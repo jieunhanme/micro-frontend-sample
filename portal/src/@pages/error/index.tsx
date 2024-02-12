@@ -39,7 +39,7 @@ const ErrorPage = ({ type, error, resetErrorBoundary }: ErrorPageProps) => {
       type: "SERVICE",
       title: "Page not found",
       content:
-        "Sorry, but the page you looking for is not found. Make sure you have the current URL.",
+        "The service is currently facing issues. Please try again shortly. If the problem persists, kindly inform our support team.",
     },
   ];
 
