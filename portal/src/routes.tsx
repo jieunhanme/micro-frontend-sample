@@ -1,6 +1,6 @@
 import React from "react";
 import remoteApcRoutes from "apc/Routes";
-import ErrorPage from "@pages/error";
+import ErrorPage from "@src/@pages/Error";
 
 const AppPage = React.lazy(() => import("./App"));
 

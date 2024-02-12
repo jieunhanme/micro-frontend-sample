@@ -4,7 +4,7 @@ import type { MenuProps } from "antd";
 import { Breadcrumb, Layout, Menu, Spin } from "antd";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
-import ErrorPage from "@pages/error";
+import ErrorPage from "@src/@pages/Error";
 
 const { Header, Content } = Layout;
 

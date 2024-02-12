@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./styles/index.css";
+import "@src/styles/index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import routes from "./routes.tsx";
+import routes from "@src/routes";
 
 const router = createBrowserRouter(routes, {
   basename: import.meta.env.MODE === "production" ? "apc" : "",

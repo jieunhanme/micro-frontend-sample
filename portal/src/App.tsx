@@ -1,4 +1,4 @@
-import Root from "@components/layout";
+import Root from "@src/@components/layout";
 
 function App() {
   return (

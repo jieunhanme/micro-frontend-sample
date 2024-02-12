@@ -20,9 +20,6 @@ export default defineConfig({
     modulePreload: false,
   },
   resolve: {
-    alias: [
-      { find: "@components", replacement: "/src/@components" },
-      { find: "@pages", replacement: "/src/@pages" },
-    ],
+    alias: [{ find: "@src", replacement: "/src" }],
   },
 });

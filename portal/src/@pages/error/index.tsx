@@ -1,9 +1,9 @@
 import { FallbackProps } from "react-error-boundary";
-import ErrorTemplate, {
-  ErrorType,
-  ErrorTemplateProps,
-} from "@components/template/errorTemplate";
 import { Button } from "antd";
+import ErrorTemplate, {
+  ErrorTemplateProps,
+  ErrorType,
+} from "@src/@components/template/errorTemplate";
 
 type OptionalFallbackProps = {
   [K in keyof FallbackProps]?: FallbackProps[K];

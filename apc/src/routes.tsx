@@ -1,10 +1,10 @@
 import React from "react";
 
 // NOTE 경로가 같으면 ERROR!!
-const AppPage = React.lazy(() => import("./App"));
-const Page1 = React.lazy(() => import("@pages/page1"));
-const Page2 = React.lazy(() => import("@pages/page2"));
-const Page3 = React.lazy(() => import("@pages/page3"));
+const AppPage = React.lazy(() => import("@src/App"));
+const Page1 = React.lazy(() => import("@src/@pages/Page1"));
+const Page2 = React.lazy(() => import("@src/@pages/Page2"));
+const Page3 = React.lazy(() => import("@src/@pages/Page3"));
 
 const routes = [
   {
