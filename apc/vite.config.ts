@@ -9,10 +9,13 @@ export default defineConfig({
     federation({
       name: "apc",
       filename: "remoteEntry.js",
+      remotes: {
+        portal: "http://localhost:3000/assets/remoteEntry.js",
+      },
       exposes: {
         "./Routes": "./src/routes",
       },
-      shared: ["react", "react-dom", "react-router-dom"],
+      shared: ["react", "react-dom", "react-router-dom", "jotai"],
     }),
   ],
   build: {

@@ -1,10 +1,12 @@
 import { Suspense, useMemo } from "react";
 import { LaptopOutlined } from "@ant-design/icons";
-import type { MenuProps } from "antd";
-import { Breadcrumb, Layout, Menu, Spin } from "antd";
+import { useAtom } from "jotai";
+import { Breadcrumb, Button, Layout, Menu, Spin, MenuProps } from "antd";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
+
 import ErrorPage from "@src/@pages/Error";
+import { localeAtom } from "@src/states/shareStates";
 
 const { Header, Content } = Layout;
 
@@ -48,6 +50,7 @@ const nav: MenuProps["items"] = [
 
 const App = () => {
   const { pathname } = useLocation();
+  const [locale, setLocale] = useAtom(localeAtom);
 
   const pathList = useMemo(() => {
     const defaultPath = "Home";
@@ -56,6 +59,10 @@ const App = () => {
       title: key,
     }));
   }, [pathname]);
+
+  const onChange = () => {
+    setLocale((locale) => (locale === "ko" ? "en" : "ko"));
+  };
 
   return (
     <Layout className="h-screen">
@@ -72,6 +79,15 @@ const App = () => {
           className="flex-1 min-w-0"
           items={nav}
         />
+        <Button
+          type="dashed"
+          shape="circle"
+          ghost
+          className="text-gray-100"
+          onClick={onChange}
+        >
+          {locale}
+        </Button>
       </Header>
       <Layout>
         <Layout className="p-4 pt-0">

@@ -8,10 +8,14 @@ export default defineConfig({
     react(),
     federation({
       name: "portal",
+      filename: "remoteEntry.js",
       remotes: {
         apc: "http://localhost:3001/assets/remoteEntry.js",
       },
-      shared: ["react", "react-dom", "react-router-dom"],
+      exposes: {
+        "./shareStates": "./src/states/shareStates",
+      },
+      shared: ["react", "react-dom", "react-router-dom", "jotai"],
     }),
   ],
   build: {
