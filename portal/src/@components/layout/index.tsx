@@ -7,6 +7,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 import ErrorPage from "@src/@pages/Error";
 import { localeAtom } from "@src/states/shareStates";
+import { useTranslation } from "react-i18next";
 
 const { Header, Content } = Layout;
 
@@ -51,7 +52,7 @@ const nav: MenuProps["items"] = [
 const App = () => {
   const { pathname } = useLocation();
   const [locale, setLocale] = useAtom(localeAtom);
-
+  const { t, i18n } = useTranslation();
   const pathList = useMemo(() => {
     const defaultPath = "Home";
     const paths = pathname.split("/").filter((ele) => ele);
@@ -61,7 +62,9 @@ const App = () => {
   }, [pathname]);
 
   const onChange = () => {
-    setLocale((locale) => (locale === "ko" ? "en" : "ko"));
+    const lang = locale === "ko" ? "en" : "ko";
+    setLocale(lang);
+    i18n.changeLanguage(lang);
   };
 
   return (
@@ -98,6 +101,8 @@ const App = () => {
               onReset={() => window.location.reload()}
             >
               <Suspense fallback={<Spin fullscreen />}>
+                {t("title")}
+                {t("description.part1")}
                 <Outlet />
               </Suspense>
             </ErrorBoundary>

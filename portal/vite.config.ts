@@ -14,8 +14,16 @@ export default defineConfig({
       },
       exposes: {
         "./shareStates": "./src/states/shareStates",
+        "./i18n": "./src/i18n/config",
       },
-      shared: ["react", "react-dom", "react-router-dom", "jotai"],
+      shared: [
+        "react",
+        "react-dom",
+        "react-router-dom",
+        "jotai",
+        "react-i18next",
+        "i18next",
+      ],
     }),
   ],
   build: {

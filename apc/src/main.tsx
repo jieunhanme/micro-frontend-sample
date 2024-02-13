@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "@src/styles/index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import routes from "@src/routes";
+import "portal/i18n";
 
 const router = createBrowserRouter(routes, {
   basename: import.meta.env.MODE === "production" ? "apc" : "",

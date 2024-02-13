@@ -15,12 +15,22 @@ export default defineConfig({
       exposes: {
         "./Routes": "./src/routes",
       },
-      shared: ["react", "react-dom", "react-router-dom", "jotai"],
+      shared: [
+        "react",
+        "react-dom",
+        "react-router-dom",
+        "jotai",
+        "react-i18next",
+        "i18next",
+      ],
     }),
   ],
   build: {
     target: "esnext",
     modulePreload: false,
+    rollupOptions: {
+      external: ["portal/i18n"],
+    },
   },
   resolve: {
     alias: [{ find: "@src", replacement: "/src" }],
