@@ -6,11 +6,15 @@
   "scripts": {
     "dev": "vite --port 3000 --strictPort",
     "build": "tsc && vite build",
+    "build:watch": "tsc && vite build --watch",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview --port 3000 --strictPort"
+    "preview": "vite preview --port 3000 --strictPort",
+    "serve": "rm -rf .dist && concurrently \"pnpm build:watch\" \"pnpm preview\""
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.0",
     "antd": "^5.13.2",
+    "concurrently": "^8.2.2",
     "i18next": "^23.8.2",
     "i18next-http-backend": "^2.4.3",
     "jotai": "^2.6.4",
