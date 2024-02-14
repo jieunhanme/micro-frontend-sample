@@ -12,7 +12,6 @@ i18n
     interpolation: {
       escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
     },
-    react: { useSuspense: true },
     backend: {
       loadPath: `https://65caf321efec34d9ed866e3e.mockapi.io/locales/{{lng}}`,
       parse: function (data: string) {
