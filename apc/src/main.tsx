@@ -6,7 +6,7 @@ import routes from "@src/routes";
 import "portal/i18n";
 
 const router = createBrowserRouter(routes, {
-  basename: import.meta.env.MODE === "production" ? "apc" : "",
+  basename: import.meta.env.VITE_APP_TITLE,
 });
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
