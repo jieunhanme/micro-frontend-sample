@@ -3,7 +3,7 @@ import { Button } from "antd";
 import ErrorTemplate, {
   ErrorTemplateProps,
   ErrorType,
-} from "@src/@components/template/errorTemplate";
+} from "@src/@pages/error/errorTemplate";
 
 type OptionalFallbackProps = {
   [K in keyof FallbackProps]?: FallbackProps[K];

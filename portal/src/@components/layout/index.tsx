@@ -5,7 +5,7 @@ import { Breadcrumb, Button, Layout, Menu, Spin, MenuProps } from "antd";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 
-import ErrorPage from "@src/@pages/Error";
+import ErrorPage from "@src/@pages/error";
 import { localeAtom } from "@src/states/shareStates";
 import { useTranslation } from "react-i18next";
 
@@ -52,7 +52,7 @@ const nav: MenuProps["items"] = [
 const App = () => {
   const { pathname } = useLocation();
   const [locale, setLocale] = useAtom(localeAtom);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const pathList = useMemo(() => {
     const defaultPath = "Home";
     const paths = pathname.split("/").filter((ele) => ele);
@@ -64,7 +64,6 @@ const App = () => {
   const onChange = () => {
     const lang = locale === "ko" ? "en" : "ko";
     setLocale(lang);
-    i18n.changeLanguage(lang);
   };
 
   return (

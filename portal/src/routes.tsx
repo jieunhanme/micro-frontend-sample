@@ -1,5 +1,5 @@
 import React from "react";
-import ErrorPage from "@src/@pages/Error";
+import ErrorPage from "@src/@pages/error";
 
 const remoteUnconnected = [
   {
@@ -22,11 +22,10 @@ export const routes = [
   {
     path: "/",
     element: <AppPage />,
-    errorElement: <ErrorPage type={404} />,
     children: [
       {
         path: "*",
-        element: <ErrorPage type={404} />,
+        errorElement: <ErrorPage type={404} />,
       },
       {
         path: "apc",

@@ -8,10 +8,7 @@ i18n
   .init({
     debug: true,
     lng: "ko", // if you're using a language detector, do not define the lng option
-    fallbackLng: "en",
-    interpolation: {
-      escapeValue: false, // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
-    },
+    fallbackLng: ["ko", "en"],
     backend: {
       loadPath: `https://65caf321efec34d9ed866e3e.mockapi.io/locales/{{lng}}`,
       parse: function (data: string) {
