@@ -23,6 +23,8 @@ export default defineConfig({
         "jotai",
         "react-i18next",
         "i18next",
+        "ag-grid-react",
+        "ag-grid-community",
       ],
     }),
   ],
