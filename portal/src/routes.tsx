@@ -12,7 +12,7 @@ const remoteUnconnected = [
   },
 ];
 
-const AppPage = React.lazy(() => import("@src/App"));
+const Root = React.lazy(() => import("@src/Root"));
 const remoteApcRoutes = await import("apc/Routes").then(
   (module) => module.default,
   () => remoteUnconnected
@@ -21,7 +21,7 @@ const remoteApcRoutes = await import("apc/Routes").then(
 export const routes = [
   {
     path: "/",
-    element: <AppPage />,
+    element: <Root />,
     children: [
       {
         path: "*",
