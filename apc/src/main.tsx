@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "@src/styles/index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider as JotaiProvider } from "jotai";
 import routes from "@src/routes";
 React.lazy(() =>
   import("portal/i18n").catch(() =>
@@ -15,6 +16,8 @@ import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied
 const router = createBrowserRouter(routes);
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <JotaiProvider>
+      <RouterProvider router={router} />
+    </JotaiProvider>
   </React.StrictMode>
 );

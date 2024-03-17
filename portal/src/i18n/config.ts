@@ -6,7 +6,7 @@ i18n
   .use(HttpBackend)
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
-    debug: true,
+    debug: false,
     lng: "ko", // if you're using a language detector, do not define the lng option
     fallbackLng: ["ko", "en"],
     backend: {
