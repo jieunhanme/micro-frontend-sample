@@ -75,7 +75,7 @@ function Content({ children }: PropsWithChildren) {
               </>
             ))}
         </div>
-        <div className="flex-1 overflow-auto">{children}</div>
+        <div className="flex-1 overflow-hidden">{children}</div>
       </div>
     </>
   );
